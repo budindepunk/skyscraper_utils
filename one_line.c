@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void    check_row(int fromleft, int fromright, int line[])
+int    check_row(int fromleft, int fromright, int line[])
 {
     // ideally this get an extra param "line_size", in this case 4
+    // 0 = correct; 1 = incorrect
     int i;
     int last_seen_left;
     int last_seen_right;
@@ -37,12 +38,11 @@ void    check_row(int fromleft, int fromright, int line[])
     }
     if (counter_fromleft == fromleft && counter_fromright == fromright)
     {
-        printf("%s", "this row is correct\n");
-        return ;
+        return (0);
     }
     else
     {
-        printf("%s", "this row is not correct\n");
+        return (1);
     }
 }
 

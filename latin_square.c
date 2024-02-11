@@ -22,8 +22,9 @@ void	latin_square(int n)
 	}
 }
 
-void	check_latin_square(int n, int grid[n][n])
+int	check_latin_square(int n, int grid[n][n])
 {
+	// 0 = latin square, 1 = not a latin square
 	int	row;
 	int	column;
 	int	i;
@@ -38,23 +39,18 @@ void	check_latin_square(int n, int grid[n][n])
 			while (i < n)
 			{
 				if (grid[row][column] > n || grid[row][column] < 1) // checks if the number is too high
-				{
-					printf("%s", "not a latin square :(\n");
-					return ;
-				}
+					return (1);
 				else if (grid[row][column] == grid[row][i]) // checks if the number repeats in the row
 				{
 					if (column == i) // asks it to not compare with itself
 						break;
-					printf("%s", "not a latin square :(\n");
-					return ;
+					return (1);
 				}
 				else if (grid[row][column] == grid[i][column]) // checks if repeats in the column
 				{
 					if (row == i) // asks it to not compare with itself
 						break;
-					printf("%s", "not a latin square :(\n");
-					return ;
+					return (1);
 				}
 				i++;
 			}
@@ -62,5 +58,5 @@ void	check_latin_square(int n, int grid[n][n])
 		}
 		row++;
 	}
-	printf("%s", "latin square :)\n");
+	return (0);
 }
