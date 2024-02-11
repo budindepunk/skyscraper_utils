@@ -64,10 +64,3 @@ void	check_latin_square(int n, int grid[n][n])
 	}
 	printf("%s", "latin square :)\n");
 }
-
-int	main(void)
-{
-	int	maarten1[4][4] = {{3, 1, 2, 4}, {1, 3, 4, 2}, {4, 2, 3, 3}, {2, 4, 1, 4}};
-	check_latin_square(3, maarten1);
-	return (0);
-}
