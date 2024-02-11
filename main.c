@@ -35,7 +35,7 @@ int main(void)
             check += check_row(clues_grid[0][i], clues_grid[1][i], hold_column);
             check += check_row(clues_grid[2][i], clues_grid[3][i], possible_solution[i]);
         }
-        i++;
+        i++; 
     }
     if (check == 0)
         printf("correct solution\n");
@@ -43,3 +43,4 @@ int main(void)
         printf("incorrect solution\n");
     return (0);
 }
+
