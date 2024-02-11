@@ -4,23 +4,24 @@
 #include "handle_arguments_grid.c"
 #include "latin_square.c"
 
-int main(void)
+int main(int argc, char **argv)
 {
     int i;
     int check;
     int hold_column[4];
     int clues_grid[4][4];
 
-    char argv[] = "2 3 2 1 2 1 3 2 2 3 1 2 1 2 3 2";
+    // char argv[] = "2 3 2 1 2 1 3 2 2 3 1 2 1 2 3 2";
     int	possible_solution[4][4] = {{3, 1, 2, 4}, {1, 3, 4, 2}, {4, 2, 3, 1}, {2, 4, 1, 3}};
     
-    handle_arguments_grid(argv, 4, clues_grid);
-    // handle_arguments(argv, up, down, left, right);
+    // we want to receive a string as a parameter when running, and arrange that input into a 2d array
+    // otherwise just uncomment the string above and remove "[1]" down here
+    handle_arguments_grid(argv[1], 4, clues_grid);
 
     i = 0;
     check = 0;
     check += check_latin_square(4, possible_solution); 
-    //checkinf if the solution has no repeated or >n numbers
+    // ruling out non-latin square solutions
     
     while (i < 4)
     {   
@@ -43,4 +44,3 @@ int main(void)
         printf("incorrect solution\n");
     return (0);
 }
-
